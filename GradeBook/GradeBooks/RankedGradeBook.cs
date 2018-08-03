@@ -44,6 +44,7 @@ namespace GradeBook.GradeBooks
             }
             else
                 return 'F';
+            Console.WriteLine("asdasdasdas");
         }
     }
 }

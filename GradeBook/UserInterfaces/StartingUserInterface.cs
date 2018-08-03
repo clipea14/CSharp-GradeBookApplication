@@ -10,7 +10,7 @@ namespace GradeBook.UserInterfaces
         {
             while (!Quit)
             {
-                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("What would you like to do?\nType 'help' for more informations!");
                 var command = Console.ReadLine().ToLower();
                 CommandRoute(command);
             }

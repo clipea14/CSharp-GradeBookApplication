@@ -190,16 +190,24 @@ namespace GradeBook.GradeBooks
 
         public virtual void CalculateStudentStatistics(string name)
         {
+            
             var student = Students.FirstOrDefault(e => e.Name == name);
-            student.LetterGrade = GetLetterGrade(student.AverageGrade);
-            student.GPA = GetGPA(student.LetterGrade, student.Type);
-
-            Console.WriteLine("{0} ({1}:{2}) GPA: {3}.", student.Name, student.LetterGrade, student.AverageGrade, student.GPA);
-            Console.WriteLine();
-            Console.WriteLine("Grades:");
-            foreach (var grade in student.Grades)
+            if (student == null)
             {
-                Console.WriteLine(grade);
+                Console.WriteLine("error student");
+            }
+            else
+            {
+                student.LetterGrade = GetLetterGrade(student.AverageGrade);
+                student.GPA = GetGPA(student.LetterGrade, student.Type);
+
+                Console.WriteLine("{0} ({1}:{2}) GPA: {3}.", student.Name, student.LetterGrade, student.AverageGrade, student.GPA);
+                Console.WriteLine();
+                Console.WriteLine("Grades:");
+                foreach (var grade in student.Grades)
+                {
+                    Console.WriteLine(grade);
+                }
             }
         }
 
